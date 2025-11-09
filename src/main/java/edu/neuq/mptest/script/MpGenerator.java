@@ -2,8 +2,9 @@ package edu.neuq.mptest.script;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
-import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
+import com.baomidou.mybatisplus.generator.model.ClassAnnotationAttributes;
+import lombok.Data;
 
 import java.nio.file.Paths;
 import java.util.Collections;
@@ -30,7 +31,10 @@ public class MpGenerator {
                 .strategyConfig(builder -> builder
                         .addInclude("order")
                         .entityBuilder()
-                        .enableLombok()
+                        .enableLombok(new ClassAnnotationAttributes(Data.class))
+                        .formatFileName("%sDO")
+                        .disableSerialVersionUID()
+
                 )
                 .templateEngine(new VelocityTemplateEngine())
                 .execute();
