@@ -10,3 +10,8 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleteTimestamp # 全局逻辑删除字段名(deleted为实体类属性名称)
+      logic-not-delete-value: 0 # 逻辑未删除值。可选，默认值为 0
+      logic-delete-value: UNIX_TIMESTAMP()

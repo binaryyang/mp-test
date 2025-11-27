@@ -56,4 +56,10 @@ class MpTestApplicationTests {
         userMapper.selectList(qw);
     }
 
+    @Test
+    public void testLogicDelete() {
+        int num = userMapper.deleteById(1001);
+        System.out.println(num);
+    }
+
 }
