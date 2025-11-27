@@ -3,6 +3,8 @@ package edu.neuq.mptest;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import edu.neuq.mptest.domain.User;
+import edu.neuq.mptest.entity.OrderInfoDO;
+import edu.neuq.mptest.mapper.OrderInfoMapper;
 import edu.neuq.mptest.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ class MpTestApplicationTests {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private OrderInfoMapper orderInfoMapper;
 
     @Test
     public void testSelectById() {
@@ -60,6 +65,12 @@ class MpTestApplicationTests {
     public void testLogicDelete() {
         int num = userMapper.deleteById(1001);
         System.out.println(num);
+    }
+
+    @Test
+    public void testOrder() {
+        OrderInfoDO orderInfoDO = orderInfoMapper.selectById(3);
+        System.out.println(orderInfoDO);
     }
 
 }

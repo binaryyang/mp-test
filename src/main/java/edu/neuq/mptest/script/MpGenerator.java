@@ -29,7 +29,7 @@ public class MpGenerator {
                                 Paths.get(System.getProperty("user.dir")) + "/src/main/resources/mapper"))
                 )
                 .strategyConfig(builder -> builder
-                        .addInclude("order")
+                        .addInclude("order_info")
                         .entityBuilder()
                         .enableLombok(new ClassAnnotationAttributes(Data.class))
                         .formatFileName("%sDO")
